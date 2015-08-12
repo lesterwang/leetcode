@@ -21,12 +21,18 @@ public class Solution {
     }
 
     public int[] twoSum2(int[] nums, int target) {
-        int i, j;
+        int i, temp;
         int[] ret = new int[2];
 
         Map<Integer, Integer> map = new HashMap<>();
         for (i = 0; i < nums.length; ++i) {
-            map.put(num[i], i);
+            temp = target - nums[i];
+            if (map.containsKey(temp)) {
+                ret[0] = map.get(temp);
+                ret[1] = i + 1;
+                return ret;
+            }
+            map.put(nums[i], i + 1);
         }
         return ret;
     }
@@ -35,7 +41,7 @@ public class Solution {
         Solution solution = new Solution();
         int[] nums = new int[] { 0, 4, 3, 0 };
         int target = 0;
-        int[] ret = solution.twoSum(nums, target);
+        int[] ret = solution.twoSum2(nums, target);
         System.out.println(ret[0] + ", " + ret[1]);
     }
 }
