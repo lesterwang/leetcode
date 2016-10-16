@@ -29,10 +29,10 @@ public class Solution {
             temp = target - nums[i];
             if (map.containsKey(temp)) {
                 ret[0] = map.get(temp);
-                ret[1] = i + 1;
+                ret[1] = i;
                 return ret;
             }
-            map.put(nums[i], i + 1);
+            map.put(nums[i], i);
         }
         return ret;
     }
